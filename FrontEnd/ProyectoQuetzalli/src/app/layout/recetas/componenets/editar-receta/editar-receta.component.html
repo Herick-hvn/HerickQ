@@ -1,0 +1,46 @@
+<div class="container">
+    <form (submit)="guardarCambios()">
+      <div class="form-header">
+        <div class="title">
+          <h1>Editar Receta</h1>
+        </div>
+      </div>
+  
+      <div class="input-group">
+        <div class="input-box">
+          <label for="nombre"><i class="fas fa-utensils"></i> Nombre de la Receta</label>
+          <input id="nombre" type="text" name="nombre" [(ngModel)]="receta.nombre" placeholder="Ingrese el nombre de la receta" required>
+        </div>
+  
+        <div class="input-box">
+          <label for="descripcion"><i class="fas fa-info-circle"></i> Descripción</label>
+          <textarea id="descripcion" name="descripcion" [(ngModel)]="receta.descripcion" placeholder="Ingrese la descripción de la receta" required></textarea>
+        </div>
+  
+        <div class="input-box">
+          <label for="foto"><i class="fas fa-image"></i> Foto</label>
+          <input id="foto" type="file" accept="image/*" [(ngModel)]="receta.foto"  (change)="seleccionarFoto($event)"required>
+        </div>
+  
+        <div class="input-box">
+          <label for="costoProduccion"><i class="fas fa-dollar-sign"></i> Costo de Producción</label>
+          <input id="costoProduccion" type="number" name="costoProduccion" [(ngModel)]="receta.costoProduccion" placeholder="Ingrese el costo de producción" required>
+        </div>
+  
+        <div class="input-box">
+          <label for="precioVenta"><i class="fas fa-dollar-sign"></i> Precio de Venta</label>
+          <input id="precioVenta" type="number" name="precioVenta" [(ngModel)]="receta.precioVenta" placeholder="Ingrese el precio de venta" required>
+        </div>
+      </div>
+  
+      <div class="continue-button d-flex justify-content-center">
+        <button type="button" class="btn btn-secondary mx-3" (click)="cancelar()">
+          Cancelar
+        </button>
+        <button type="submit" class="btn btn-custom" [disabled]="!formularioValido()">
+          Guardar Cambios
+        </button>
+      </div>
+    </form>
+  </div>
+  
